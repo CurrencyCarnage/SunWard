@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import CatalogPage from './pages/CatalogPage'
 import FinancingPage from './pages/FinancingPage'
 import NewsArticlePage from './pages/NewsArticlePage'
 import NewsPage from './pages/NewsPage'
@@ -274,16 +275,24 @@ function SiteHeader({ pathname, onNavigate }) {
         </a>
 
         <nav className="topbar__nav" aria-label="Primary">
-          {navigation.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={item.route ? onNavigate(item.route) : undefined}
-              className={item.route && (pathname === item.route || (item.route === ROUTES.news && isNewsPath(pathname))) ? 'is-active' : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navigation.map((item, index) => {
+            const targetRoute = item.route ?? (index === 0 ? ROUTES.catalog : undefined)
+            const isActive = Boolean(
+              targetRoute &&
+                (pathname === targetRoute || (targetRoute === ROUTES.news && isNewsPath(pathname))),
+            )
+
+            return (
+              <a
+                key={item.label}
+                href={targetRoute ?? item.href}
+                onClick={targetRoute ? onNavigate(targetRoute) : undefined}
+                className={isActive ? 'is-active' : undefined}
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="topbar__actions">
@@ -447,7 +456,7 @@ function HomePage({ onNavigate }) {
 
         <div className="catalog__footer-row">
           <p>SUNWARD-ის სპეცტექნიკის ასორტიმენტი ძალიან ფართოა და მუდმივად ახლდება</p>
-          <a className="button button--primary" href="#!">
+          <a className="button button--primary" href={ROUTES.catalog} onClick={onNavigate(ROUTES.catalog)}>
             სრული კატალოგის ნახვა <ArrowRight />
           </a>
         </div>
@@ -754,6 +763,7 @@ export default function App() {
   return (
     <div className="page-shell">
       <SiteHeader pathname={pathname} onNavigate={handleNavigate} />
+      {pathname === ROUTES.catalog ? <CatalogPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.contacts ? <ContactsPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.financing ? <FinancingPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.news ? <NewsPage onNavigate={handleNavigate} /> : null}

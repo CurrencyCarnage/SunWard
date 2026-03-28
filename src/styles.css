@@ -1283,6 +1283,116 @@ button {
   object-fit: cover;
 }
 
+.catalog-page__hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(7, 130, 127, 0.84), rgba(7, 130, 127, 0.84)),
+    url("/assets/catalog-hero-banner.png") center 30% / cover no-repeat;
+}
+
+.catalog-page__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(7, 130, 127, 0.16), rgba(7, 130, 127, 0.04));
+  pointer-events: none;
+}
+
+.catalog-page__hero-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  text-align: center;
+}
+
+.catalog-page__hero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.25rem, 1.85rem + 1.1vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+.catalog-page__body {
+  padding-top: 44px;
+  padding-bottom: 92px;
+}
+
+.catalog-page__breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #727272;
+}
+
+.catalog-page__breadcrumbs strong {
+  color: var(--text);
+}
+
+.catalog-page__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 58px;
+  padding-top: 28px;
+}
+
+.catalog-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 620px);
+  align-items: start;
+  gap: clamp(28px, 4vw, 86px);
+}
+
+.catalog-feature--image-left {
+  grid-template-columns: minmax(360px, 620px) minmax(0, 1fr);
+}
+
+.catalog-feature--image-left .catalog-feature__copy {
+  order: 2;
+}
+
+.catalog-feature--image-left .catalog-feature__media {
+  order: 1;
+}
+
+.catalog-feature__copy h2 {
+  margin: 0;
+  font-size: clamp(1.95rem, 1.55rem + 0.8vw, 2.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.catalog-feature__copy p {
+  margin: 18px 0 0;
+  max-width: 620px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.catalog-feature__copy .button {
+  margin-top: 24px;
+  min-width: 204px;
+}
+
+.catalog-feature__media {
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f2f2f0;
+}
+
+.catalog-feature__media img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .contact-branches {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
@@ -1743,8 +1853,24 @@ button {
 
   .news-page__body,
   .news-article-page__body,
-  .financing-page__body {
+  .financing-page__body,
+  .catalog-page__body {
     padding-top: 36px;
+  }
+
+  .catalog-page__hero-overlay {
+    min-height: 220px;
+  }
+
+  .catalog-feature,
+  .catalog-feature--image-left {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .catalog-feature--image-left .catalog-feature__copy,
+  .catalog-feature--image-left .catalog-feature__media {
+    order: initial;
   }
 
   .featured-news-card__content {
@@ -1885,6 +2011,10 @@ button {
     min-height: 204px;
   }
 
+  .catalog-page__hero-overlay {
+    min-height: 204px;
+  }
+
   .contact-hero h1,
   .contact-page__intro h2,
   .contact-page__content h2,
@@ -1896,8 +2026,14 @@ button {
   .news-article-page__copy h1,
   .featured-news-card__content h2,
   .financing-hero h1,
-  .financing-copy-block h2 {
+  .financing-copy-block h2,
+  .catalog-page__hero h1,
+  .catalog-feature__copy h2 {
     font-size: 2.3rem;
+  }
+
+  .catalog-feature__copy p {
+    font-size: 16px;
   }
 
   .contact-certificates {
