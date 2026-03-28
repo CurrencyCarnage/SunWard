@@ -1,5 +1,6 @@
 export const ROUTES = {
   home: '/',
+  catalog: '/catalog',
   financing: '/financing',
   news: '/news',
   newsArticle: '/news/global-service-journey',
@@ -14,6 +15,7 @@ export function normalizePath(pathname) {
   const normalized = pathname.replace(/\/+$/, '')
 
   if (
+    normalized === ROUTES.catalog ||
     normalized === ROUTES.financing ||
     normalized === ROUTES.news ||
     normalized === ROUTES.newsArticle ||
