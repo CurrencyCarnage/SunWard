@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import FinancingPage from './pages/FinancingPage'
 import NewsArticlePage from './pages/NewsArticlePage'
 import NewsPage from './pages/NewsPage'
 import { ROUTES, getCurrentPath, isNewsPath, normalizePath } from './routes'
@@ -8,7 +9,7 @@ const navigation = [
   { label: 'სერვისი', href: '#!' },
   { label: 'სათადარიგო ნაწილები', href: '#!' },
   { label: 'აქციები', href: '#!' },
-  { label: 'დაფინანსება', href: '#!' },
+  { label: 'დაფინანსება', href: ROUTES.financing, route: ROUTES.financing },
   { label: 'სიახლეები', href: ROUTES.news, route: ROUTES.news },
   { label: 'კონტაქტები', href: ROUTES.contacts, route: ROUTES.contacts },
 ]
@@ -754,6 +755,7 @@ export default function App() {
     <div className="page-shell">
       <SiteHeader pathname={pathname} onNavigate={handleNavigate} />
       {pathname === ROUTES.contacts ? <ContactsPage onNavigate={handleNavigate} /> : null}
+      {pathname === ROUTES.financing ? <FinancingPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.news ? <NewsPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.newsArticle ? <NewsArticlePage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.home ? <HomePage onNavigate={handleNavigate} /> : null}

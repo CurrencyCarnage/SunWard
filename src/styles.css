@@ -22,7 +22,8 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Noto Sans Georgian', Arial, 'Helvetica Neue', sans-serif;
+  font-family: "Segoe UI", "Noto Sans Georgian", Arial, "Helvetica Neue",
+    sans-serif;
   color: var(--text);
   background: #ffffff;
   overflow-x: clip;
@@ -63,7 +64,10 @@ button {
 
 .topbar__inner {
   display: grid;
-  grid-template-columns: minmax(168px, 232px) minmax(0, 1fr) minmax(278px, 410px);
+  grid-template-columns: minmax(168px, 232px) minmax(0, 1fr) minmax(
+      278px,
+      410px
+    );
   align-items: center;
   gap: clamp(6px, 0.55vw, 12px);
   width: min(calc(100% - 10px), var(--header-shell));
@@ -100,7 +104,7 @@ button {
 }
 
 .topbar__nav a.is-active::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: -29px;
@@ -190,9 +194,11 @@ button {
 .hero__copy {
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(rgba(244, 244, 241, 0.82), rgba(246, 246, 243, 0.9)),
-    url('/assets/hero-texture.png') center center / cover no-repeat;
+  background: linear-gradient(
+      rgba(244, 244, 241, 0.82),
+      rgba(246, 246, 243, 0.9)
+    ),
+    url("/assets/hero-texture.png") center center / cover no-repeat;
 }
 
 .hero__copy-inner {
@@ -489,7 +495,13 @@ button {
 
 .catalog-card--featured {
   color: #ffffff;
-  background: linear-gradient(145deg, #0eaca6 8%, #0eaca6 44%, #46b6b2 44%, #1ab1ab 100%);
+  background: linear-gradient(
+    145deg,
+    #0eaca6 8%,
+    #0eaca6 44%,
+    #46b6b2 44%,
+    #1ab1ab 100%
+  );
 }
 
 .catalog-card--featured img {
@@ -656,9 +668,8 @@ button {
 
 .news-hero {
   min-height: 254px;
-  background:
-    linear-gradient(rgba(9, 139, 135, 0.78), rgba(9, 139, 135, 0.78)),
-    url('/assets/news-hero-background.png') center 38% / cover no-repeat;
+  background: linear-gradient(rgba(9, 139, 135, 0.78), rgba(9, 139, 135, 0.78)),
+    url("/assets/news-hero-background.png") center 38% / cover no-repeat;
 }
 
 .news-hero__overlay {
@@ -875,15 +886,87 @@ button {
   object-fit: cover;
 }
 
+.financing-page {
+  background: #ffffff;
+}
+
+.financing-hero {
+  min-height: 254px;
+  background: linear-gradient(rgba(9, 139, 135, 0.78), rgba(9, 139, 135, 0.78)),
+    url("/assets/financing-hero-background.png") center center / cover no-repeat;
+}
+
+.financing-hero__overlay {
+  min-height: 254px;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.financing-hero h1,
+.financing-copy-block h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 2rem + 1.15vw, 4.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.financing-hero h1 {
+  color: #ffffff;
+}
+
+.financing-page__body {
+  padding-top: 44px;
+  padding-bottom: 78px;
+}
+
+.financing-page__content {
+  max-width: 920px;
+  padding-top: 34px;
+}
+
+.financing-copy-block + .financing-copy-block {
+  margin-top: 56px;
+}
+
+.financing-copy-block h2 {
+  font-size: clamp(2rem, 1.55rem + 0.5vw, 2.9rem);
+}
+
+.financing-copy-block p {
+  max-width: 860px;
+  margin: 12px 0 0;
+  color: #242424;
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.financing-copy-block__lead {
+  font-weight: 700;
+}
+
+.financing-logo-tile {
+  display: grid;
+  place-items: center;
+  width: 312px;
+  height: 176px;
+  margin-top: 42px;
+  background: #f8f8f6;
+}
+
+.financing-logo-tile img {
+  width: 294px;
+}
+
 .contact-page {
   background: #ffffff;
 }
 
 .contact-hero {
   min-height: 254px;
-  background:
-    linear-gradient(rgba(9, 139, 135, 0.78), rgba(9, 139, 135, 0.78)),
-    url('/assets/contact-hero-building.png') center center / cover no-repeat;
+  background: linear-gradient(rgba(9, 139, 135, 0.78), rgba(9, 139, 135, 0.78)),
+    url("/assets/contact-hero-building.png") center center / cover no-repeat;
 }
 
 .contact-hero__overlay {
@@ -1406,7 +1489,10 @@ button {
 
 @media (max-width: 1480px) {
   .topbar__inner {
-    grid-template-columns: minmax(146px, 190px) minmax(0, 1fr) minmax(232px, 320px);
+    grid-template-columns: minmax(146px, 190px) minmax(0, 1fr) minmax(
+        232px,
+        320px
+      );
     width: min(calc(100% - 8px), var(--header-shell));
     gap: 8px;
   }
@@ -1436,7 +1522,10 @@ button {
 
 @media (max-width: 1280px) {
   .topbar__inner {
-    grid-template-columns: minmax(132px, 168px) minmax(0, 1fr) minmax(186px, 258px);
+    grid-template-columns: minmax(132px, 168px) minmax(0, 1fr) minmax(
+        186px,
+        258px
+      );
     width: min(calc(100% - 6px), var(--header-shell));
     gap: 8px;
   }
@@ -1548,6 +1637,10 @@ button {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.74fr);
     gap: 34px;
   }
+
+  .financing-page__content {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1649,7 +1742,8 @@ button {
   }
 
   .news-page__body,
-  .news-article-page__body {
+  .news-article-page__body,
+  .financing-page__body {
     padding-top: 36px;
   }
 
@@ -1669,6 +1763,14 @@ button {
   .share-links--article {
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .financing-page__content {
+    padding-top: 28px;
+  }
+
+  .financing-copy-block + .financing-copy-block {
+    margin-top: 42px;
   }
 
   .contact-page__intro {
@@ -1779,6 +1881,10 @@ button {
     min-height: 204px;
   }
 
+  .financing-hero__overlay {
+    min-height: 204px;
+  }
+
   .contact-hero h1,
   .contact-page__intro h2,
   .contact-page__content h2,
@@ -1788,7 +1894,9 @@ button {
 
   .news-hero h1,
   .news-article-page__copy h1,
-  .featured-news-card__content h2 {
+  .featured-news-card__content h2,
+  .financing-hero h1,
+  .financing-copy-block h2 {
     font-size: 2.3rem;
   }
 
@@ -1808,6 +1916,11 @@ button {
 
   .share-links__items {
     flex-wrap: wrap;
+  }
+
+  .financing-logo-tile {
+    width: 100%;
+    max-width: 312px;
   }
 }
 
