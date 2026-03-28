@@ -641,6 +641,240 @@ button {
   right: -16px;
 }
 
+.page-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.page-breadcrumbs strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.news-hero {
+  min-height: 254px;
+  background:
+    linear-gradient(rgba(9, 139, 135, 0.78), rgba(9, 139, 135, 0.78)),
+    url('/assets/news-hero-background.png') center 38% / cover no-repeat;
+}
+
+.news-hero__overlay {
+  min-height: 254px;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.news-hero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 2rem + 1.15vw, 4.1rem);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+
+.news-page__body {
+  padding-top: 44px;
+  padding-bottom: 88px;
+}
+
+.featured-news-card {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.94fr) minmax(0, 1.16fr);
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.featured-news-card__poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-news-card__content {
+  display: flex;
+  flex-direction: column;
+  padding: 34px 36px 30px;
+}
+
+.featured-news-card__content h2 {
+  max-width: 590px;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.45rem + 0.8vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.featured-news-card__meta,
+.news-list-card__meta,
+.news-article-page__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.featured-news-card__clock,
+.news-list-card__clock,
+.news-article-page__clock {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+}
+
+.featured-news-card__clock svg,
+.news-list-card__clock svg,
+.news-article-page__clock svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featured-news-card__content p,
+.news-list-card p,
+.news-article-page__copy p {
+  margin: 14px 0 0;
+  color: #2e2e2e;
+  font-size: 14px;
+  line-height: 1.48;
+}
+
+.featured-news-card__content p {
+  max-width: 590px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.featured-news-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 26px;
+  flex-wrap: wrap;
+}
+
+.share-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #646464;
+  font-size: 12px;
+}
+
+.share-links__items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.share-links__items a {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.news-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 22px;
+  margin-top: 34px;
+}
+
+.news-list-card img {
+  width: 100%;
+  aspect-ratio: 388 / 290;
+  object-fit: cover;
+}
+
+.news-list-card h3 {
+  margin: 16px 0 0;
+  font-size: 19px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.news-list-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.news-article-page__body {
+  padding-top: 54px;
+  padding-bottom: 96px;
+}
+
+.news-article-page__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.72fr);
+  gap: 54px;
+  align-items: start;
+}
+
+.news-article-page__copy h1 {
+  max-width: 840px;
+  margin: 0;
+  font-size: clamp(2.2rem, 1.9rem + 0.85vw, 3.35rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.news-article-page__copy p + p {
+  margin-top: 16px;
+}
+
+.news-article-page__side {
+  display: grid;
+  gap: 18px;
+}
+
+.share-links--article {
+  justify-content: flex-end;
+}
+
+.news-article-page__poster img {
+  width: 100%;
+  aspect-ratio: 799 / 600;
+  object-fit: cover;
+}
+
+.news-article-page__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.news-article-page__gallery-card {
+  margin: 0;
+}
+
+.news-article-page__gallery-card img {
+  width: 100%;
+  aspect-ratio: 646 / 500;
+  object-fit: cover;
+}
+
 .contact-page {
   background: #ffffff;
 }
@@ -1297,6 +1531,23 @@ button {
     grid-template-columns: minmax(0, 1fr) minmax(220px, 0.85fr) 150px;
     gap: 28px;
   }
+
+  .featured-news-card {
+    grid-template-columns: minmax(260px, 0.86fr) minmax(0, 1fr);
+  }
+
+  .featured-news-card__content {
+    padding: 28px 28px 26px;
+  }
+
+  .news-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .news-article-page__top {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.74fr);
+    gap: 34px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1341,12 +1592,16 @@ button {
   .benefit-grid,
   .catalog-grid,
   .news-grid,
+  .news-page__grid,
   .about,
   .site-footer__inner,
   .contacts-band,
   .catalog__footer-row,
   .contact-page__lead,
-  .contact-branches {
+  .contact-branches,
+  .featured-news-card,
+  .news-article-page__top,
+  .news-article-page__gallery {
     grid-template-columns: 1fr;
   }
 
@@ -1391,6 +1646,29 @@ button {
 
   .contact-page__body {
     padding-top: 36px;
+  }
+
+  .news-page__body,
+  .news-article-page__body {
+    padding-top: 36px;
+  }
+
+  .featured-news-card__content {
+    padding: 24px 22px 24px;
+  }
+
+  .featured-news-card__footer {
+    align-items: stretch;
+  }
+
+  .featured-news-card__footer .button {
+    width: 100%;
+  }
+
+  .share-links,
+  .share-links--article {
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .contact-page__intro {
@@ -1497,10 +1775,20 @@ button {
     min-height: 204px;
   }
 
+  .news-hero__overlay {
+    min-height: 204px;
+  }
+
   .contact-hero h1,
   .contact-page__intro h2,
   .contact-page__content h2,
   .contact-form-panel h2 {
+    font-size: 2.3rem;
+  }
+
+  .news-hero h1,
+  .news-article-page__copy h1,
+  .featured-news-card__content h2 {
     font-size: 2.3rem;
   }
 
@@ -1516,6 +1804,10 @@ button {
 
   .contacts-band__content h2 {
     white-space: normal;
+  }
+
+  .share-links__items {
+    flex-wrap: wrap;
   }
 }
 

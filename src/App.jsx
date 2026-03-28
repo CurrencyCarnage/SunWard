@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-
-const ROUTES = {
-  home: '/',
-  contacts: '/contacts',
-}
+import NewsArticlePage from './pages/NewsArticlePage'
+import NewsPage from './pages/NewsPage'
+import { ROUTES, getCurrentPath, isNewsPath, normalizePath } from './routes'
 
 const navigation = [
   { label: 'ტექნიკა', href: '#!' },
@@ -11,7 +9,7 @@ const navigation = [
   { label: 'სათადარიგო ნაწილები', href: '#!' },
   { label: 'აქციები', href: '#!' },
   { label: 'დაფინანსება', href: '#!' },
-  { label: 'სიახლეები', href: '#!' },
+  { label: 'სიახლეები', href: ROUTES.news, route: ROUTES.news },
   { label: 'კონტაქტები', href: ROUTES.contacts, route: ROUTES.contacts },
 ]
 
@@ -64,6 +62,7 @@ const newsCards = [
     alt: 'Global Service Journey poster',
     excerpt:
       'სექტემბერი აღინიშნა SUNWARD-ის გლობალური სერვისული ტურის «Global Service Journey» დაწყებით რუსეთის სხვადასხვა ქალაქსა და რეგიონში.',
+    route: ROUTES.newsArticle,
   },
   {
     title: 'SUNWARD-ის სპეცტექნიკა საერთაშორისო გამოფენა-ფორუმზე «Eurasian Construction Technology 2024»',
@@ -72,6 +71,7 @@ const newsCards = [
     alt: 'SUNWARD equipment at the exhibition',
     excerpt:
       'სანკტ-პეტერბურგში გაიმართა გამოფენა იმპორტიორთა და სპეცტექნიკის მწარმოებელთა ასოციაციის მხარდაჭერით.',
+    route: ROUTES.news,
   },
   {
     title: 'SUNWARD-ის ახალი როტორული საბურღი დანადგარი «M-12» ტრასის მშენებლობაზე თათრეთში',
@@ -80,6 +80,7 @@ const newsCards = [
     alt: 'SUNWARD rotary drilling machine in Russia',
     excerpt:
       'ჩვენი დილერის «ЦБО» სერვისულმა ინჟინრებმა რუსეთში პირველი SWDM300H საბურღი დანადგარის მონტაჟი და გაშვება განახორციელეს.',
+    route: ROUTES.news,
   },
 ]
 
@@ -168,22 +169,6 @@ const equipmentOptions = [
   'ტელესკოპური დამტვირთველები',
   'ბულდოზერები',
 ]
-
-function normalizePath(pathname) {
-  if (!pathname || pathname === '/') {
-    return ROUTES.home
-  }
-
-  return pathname.replace(/\/+$/, '') === ROUTES.contacts ? ROUTES.contacts : ROUTES.home
-}
-
-function getCurrentPath() {
-  if (typeof window === 'undefined') {
-    return ROUTES.home
-  }
-
-  return normalizePath(window.location.pathname)
-}
 
 function SearchIcon() {
   return (
@@ -293,7 +278,7 @@ function SiteHeader({ pathname, onNavigate }) {
               key={item.label}
               href={item.href}
               onClick={item.route ? onNavigate(item.route) : undefined}
-              className={pathname === item.route ? 'is-active' : undefined}
+              className={item.route && (pathname === item.route || (item.route === ROUTES.news && isNewsPath(pathname))) ? 'is-active' : undefined}
             >
               {item.label}
             </a>
@@ -375,7 +360,7 @@ function SiteFooter() {
   )
 }
 
-function HomePage() {
+function HomePage({ onNavigate }) {
   return (
     <main>
       <section className="hero" id="home">
@@ -549,7 +534,7 @@ function HomePage() {
                   <time>{item.date}</time>
                 </div>
                 <p>{item.excerpt}</p>
-                <a href="#!">
+                <a href={item.route ?? '#!'} onClick={item.route ? onNavigate(item.route) : undefined}>
                   სრულად წაკითხვა <ArrowRight />
                 </a>
               </article>
@@ -768,7 +753,10 @@ export default function App() {
   return (
     <div className="page-shell">
       <SiteHeader pathname={pathname} onNavigate={handleNavigate} />
-      {pathname === ROUTES.contacts ? <ContactsPage onNavigate={handleNavigate} /> : <HomePage />}
+      {pathname === ROUTES.contacts ? <ContactsPage onNavigate={handleNavigate} /> : null}
+      {pathname === ROUTES.news ? <NewsPage onNavigate={handleNavigate} /> : null}
+      {pathname === ROUTES.newsArticle ? <NewsArticlePage onNavigate={handleNavigate} /> : null}
+      {pathname === ROUTES.home ? <HomePage onNavigate={handleNavigate} /> : null}
       <SiteFooter />
     </div>
   )
