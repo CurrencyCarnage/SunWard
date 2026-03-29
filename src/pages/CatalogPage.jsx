@@ -36,7 +36,11 @@ export default function CatalogPage({ onNavigate }) {
               <div className="catalog-feature__copy">
                 <h2>{section.title}</h2>
                 <p>{section.description}</p>
-                <a className="button button--primary" href="#!">
+                <a
+                  className="button button--primary"
+                  href={section.route ?? '#!'}
+                  onClick={section.route ? onNavigate(section.route) : undefined}
+                >
                   ტექნიკის ნახვა <ArrowRight />
                 </a>
               </div>

@@ -1,6 +1,8 @@
 export const ROUTES = {
   home: '/',
   catalog: '/catalog',
+  miniLoaders: '/catalog/mini-loaders',
+  model: '/catalog/mini-loaders/swl3220',
   financing: '/financing',
   news: '/news',
   newsArticle: '/news/global-service-journey',
@@ -16,6 +18,8 @@ export function normalizePath(pathname) {
 
   if (
     normalized === ROUTES.catalog ||
+    normalized === ROUTES.miniLoaders ||
+    normalized === ROUTES.model ||
     normalized === ROUTES.financing ||
     normalized === ROUTES.news ||
     normalized === ROUTES.newsArticle ||

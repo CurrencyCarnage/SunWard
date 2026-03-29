@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import CatalogPage from './pages/CatalogPage'
 import FinancingPage from './pages/FinancingPage'
+import MiniLoadersPage from './pages/MiniLoadersPage'
+import ModelPage from './pages/ModelPage'
 import NewsArticlePage from './pages/NewsArticlePage'
 import NewsPage from './pages/NewsPage'
 import { ROUTES, getCurrentPath, isNewsPath, normalizePath } from './routes'
@@ -279,7 +281,12 @@ function SiteHeader({ pathname, onNavigate }) {
             const targetRoute = item.route ?? (index === 0 ? ROUTES.catalog : undefined)
             const isActive = Boolean(
               targetRoute &&
-                (pathname === targetRoute || (targetRoute === ROUTES.news && isNewsPath(pathname))),
+                (
+                  pathname === targetRoute ||
+                  (targetRoute === ROUTES.catalog &&
+                    (pathname === ROUTES.catalog || pathname === ROUTES.miniLoaders || pathname === ROUTES.model)) ||
+                  (targetRoute === ROUTES.news && isNewsPath(pathname))
+                ),
             )
 
             return (
@@ -764,6 +771,8 @@ export default function App() {
     <div className="page-shell">
       <SiteHeader pathname={pathname} onNavigate={handleNavigate} />
       {pathname === ROUTES.catalog ? <CatalogPage onNavigate={handleNavigate} /> : null}
+      {pathname === ROUTES.miniLoaders ? <MiniLoadersPage onNavigate={handleNavigate} /> : null}
+      {pathname === ROUTES.model ? <ModelPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.contacts ? <ContactsPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.financing ? <FinancingPage onNavigate={handleNavigate} /> : null}
       {pathname === ROUTES.news ? <NewsPage onNavigate={handleNavigate} /> : null}
