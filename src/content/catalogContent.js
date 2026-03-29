@@ -22,6 +22,7 @@ export const catalogSections = [
     image: '/assets/catalog-skid-steers.png',
     alt: 'SUNWARD skid-steer loader',
     align: 'left',
+    route: '/catalog/mini-loaders',
   },
   {
     title: 'ფრონტალური დამტვირთველები',
